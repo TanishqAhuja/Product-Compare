@@ -1,26 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Col, Row } from 'antd';
+import products from './data.json';
+import CompareCard from './Components/CompareCard';
+import CompareTable from './Components/CompareTable';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+
+  state = {
+    arr: [],
+  };
+
+
+  handleClick = (product) => {
+    this.state.arr.indexOf(product) > -1
+      ? this.setState({ arr: [...this.state.arr.filter(prod => prod !== product)] })
+      : this.setState({
+        arr: [...this.state.arr, product]
+      })
+  }
+
+  render() {
+    return (
+      <Row type='flex' justify='center'>
+        <Col id='container' type='flex' span={21}>
+          <Row style={{ height: '20vh', paddingTop: 43, fontSize: 32 }}>Compare Products</Row>
+          <div>
+            <Row type="flex" gutter='23'>
+              {products.map((product) => (<Col span='6' key={product.key}><CompareCard data={product} key={product.key}
+                handleClick={this.handleClick} /></Col>))}
+            </Row>
+          </div>
+          {
+            this.state.arr.length > 1
+              ? <div style={{ marginTop: 50 }}>
+                <CompareTable arr={this.state.arr} />
+              </div>
+              : <></>
+          }
+        </Col>
+      </Row>
+    );
+  }
 }
 
 export default App;
