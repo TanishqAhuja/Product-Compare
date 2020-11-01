@@ -6,37 +6,37 @@ body {
   display: none;
   height: 100%;
   width: 100%;
-  background-color: #48cfad;
-  opacity: 0.5;
+  background-color: rgba(72, 207, 173, 0.5);
+  align-items: center;
+  justify-content: center;
   position: absolute;
   top: 0;
 }
 
 .permatint {
+  display: flex;
   height: 100%;
   width: 100%;
-  background-color: #48cfad;
-  opacity: 0.5;
+  background-color: rgba(72, 207, 173, 0.5);
   position: absolute;
+  align-items: center;
+  justify-content: center;
   top: 0;
 }
 
-.rm-btn {
-  display: none;
+.card:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.permatint:hover .rm-btn {
+.card:hover .btn {
   display: block;
 }
 
 .btn {
-  background-color: #48cfad;
-  opacity: 1;
+  display: none;
+  background-color: rgba(72, 207, 173, 0.5);
   border: 2px solid white;
   color: white;
-  position: absolute;
-  left: 30%;
-  top: 45%;
   font-size: 30;
 }
 
@@ -45,12 +45,13 @@ body {
   background-color: white;
   color: #48cfad;
 }
+
 .holder {
   position: relative;
 }
 
-.holder:hover .tint {
-  display: block;
+.card:hover .tint {
+  display: flex;
 }
 
 .Details {
