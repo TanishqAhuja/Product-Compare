@@ -26,7 +26,7 @@ class App extends React.Component {
         <Col id='container' type='flex' span={21}>
           <Row style={{ height: '20vh', paddingTop: 43, fontSize: 32 }}>Compare Products</Row>
           <div>
-            <Row type="flex" gutter='23'>
+            <Row type="flex" gutter='50'>
               {products.map((product) => (<Col span='6' key={product.key}><CompareCard data={product} key={product.key}
                 handleClick={this.handleClick} /></Col>))}
             </Row>
